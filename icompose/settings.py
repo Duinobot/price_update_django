@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'price_updae',
+    'price_update',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,42 +81,42 @@ WSGI_APPLICATION = 'icompose.wsgi.application'
 #         'HOST': 'mongo',
 #         'PORT': '27017',
 #         'USER': 'root',
-#         'PASSWORD': '123456', 
+#         'PASSWORD': '123456',
 #     }
 # }
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'djongo',
-            'NAME': 'django_atlas',
-            'ENFORCE_SCHEMA': False,
-            'CLIENT': {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'django_atlas',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
                 'host': 'mongodb+srv://danmo2060:PSOQhjLuw2MBT32z@cluster0.iswds.mongodb.net/django_atlas?retryWrites=true&w=majority',
                 'port': 27017,
                 'username': 'danmo2060',
                 'password': 'PSOQhjLuw2MBT32z',
                 # 'authSource': 'admin',
                 # 'authMechanism': 'SCRAM-SHA-1'
+        },
+        'LOGGING': {
+            'version': 1,
+            'loggers': {
+                'djongo': {
+                    'level': 'DEBUG',
+                    'propagate': False,
+                }
             },
-            'LOGGING': {
-                'version': 1,
-                'loggers': {
-                    'djongo': {
-                        'level': 'DEBUG',
-                        'propagate': False,                        
-                    }
-                },
-             },
-        }
+        },
     }
+}
 
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://redis:6379/1", #这里直接使用redis别名作为host ip地址
+        "LOCATION": "redis://redis:6379/1",  # 这里直接使用redis别名作为host ip地址
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "123456789", # 换成你自己密码
+            "PASSWORD": "123456789",  # 换成你自己密码
         },
     }
 }
