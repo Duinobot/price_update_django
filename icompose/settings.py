@@ -74,41 +74,41 @@ WSGI_APPLICATION = 'icompose.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django',
+        'HOST': 'django-postgres.csafa9pyanaf.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'postgres',
+        'PASSWORD': '123456789',
+    }
+}
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'djongo',
-#         'NAME': 'mongo',
-#         'HOST': 'mongo',
-#         'PORT': '27017',
-#         'USER': 'root',
-#         'PASSWORD': '123456',
+#         'NAME': 'django_atlas',
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#                 'host': 'mongodb+srv://danmo2060:PSOQhjLuw2MBT32z@cluster0.iswds.mongodb.net/django_atlas?retryWrites=true&w=majority',
+#                 'port': 27017,
+#                 'username': 'danmo2060',
+#                 'password': 'PSOQhjLuw2MBT32z',
+#                 # 'authSource': 'admin',
+#                 # 'authMechanism': 'SCRAM-SHA-1'
+#         },
+#         'LOGGING': {
+#             'version': 1,
+#             'loggers': {
+#                 'djongo': {
+#                     'level': 'DEBUG',
+#                     'propagate': False,
+#                 }
+#             },
+#         },
 #     }
 # }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'django_atlas',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-                'host': 'mongodb+srv://danmo2060:PSOQhjLuw2MBT32z@cluster0.iswds.mongodb.net/django_atlas?retryWrites=true&w=majority',
-                'port': 27017,
-                'username': 'danmo2060',
-                'password': 'PSOQhjLuw2MBT32z',
-                # 'authSource': 'admin',
-                # 'authMechanism': 'SCRAM-SHA-1'
-        },
-        'LOGGING': {
-            'version': 1,
-            'loggers': {
-                'djongo': {
-                    'level': 'DEBUG',
-                    'propagate': False,
-                }
-            },
-        },
-    }
-}
 
 CACHES = {
     "default": {

@@ -1,4 +1,5 @@
 django
-djongo
+#djongo
 uwsgi
-pymongo[tls,srv]
+#pymongo[tls,srv]
+psycopg2
