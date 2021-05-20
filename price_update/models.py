@@ -29,7 +29,6 @@ class Product(models.Model):
                                blank=True, max_digits=6, decimal_places=2, verbose_name="Original Cost")
     new_cost = models.DecimalField(null=True,
                                    blank=True, max_digits=6, decimal_places=2, verbose_name="New Cost")
-
     price_regular = models.DecimalField(null=True,
                                         blank=True, max_digits=6, decimal_places=2)
     price_platinum = models.DecimalField(null=True,
