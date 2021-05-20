@@ -1,5 +1,6 @@
-django
+django==3.2.3
 #djongo
 uwsgi
 #pymongo[tls,srv]
-psycopg2
+psycopg2 #sudo apt-get install python3-pip
+django-extensions

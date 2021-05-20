@@ -17,14 +17,20 @@ class Command(BaseCommand):
         path = options['path']
         with open(path, 'rt') as f:
             reader = csv.reader(f, dialect='excel')
+
+            # Determine if there's header, skip head if so
+            header = next(reader)
+
             n = 0
             for row in reader:
                 # print(row[1])
                 n = n+1
-                product = Product.objects.create(
-                    model=row[0],
-                    name=row[1],
-                    product_type=row[2],
-                    cost=row[3],
-                )
                 print(n)
+
+                try:
+                    product, created = Product.objects.get_or_create(
+                        model=row[0], name=row[1], product_type=row[2], cost=row[3],
+                    )
+                except:
+                    print(f"error in row {n}")
+                    continue

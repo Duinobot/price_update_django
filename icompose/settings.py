@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'price_update',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_extensions',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -110,16 +111,17 @@ DATABASES = {
 #     }
 # }
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://redis:6379/1",  # 这里直接使用redis别名作为host ip地址
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "123456789",  # 换成你自己密码
-        },
-    }
-}
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://redis:6379/1",  # 这里直接使用redis别名作为host ip地址
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#             "PASSWORD": "123456789",  # 换成你自己密码
+#         },
+#     }
+# }
+
 # DATABASES = {
 #     'default': {
 #         ENGINE': '',
