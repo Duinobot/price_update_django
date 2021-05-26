@@ -199,3 +199,9 @@ MEDIA_URL = "/media/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+
+# Shell_Plus Autoreload
+SHELL_PLUS_POST_IMPORTS = [
+    'from price_update.serializers import ProductSerializer',
+]
