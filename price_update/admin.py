@@ -1,17 +1,22 @@
 from django.contrib import admin
 from price_update.models import Product
 from import_export import resources
+from import_export.admin import ImportExportMixin
+
+admin.sites.AdminSite.site_header = "IMB"
+admin.sites.AdminSite.site_title = "IBM"
+admin.sites.AdminSite.index_title = "MBI"
 
 # Create Import Export Resource
 class ProductResource(resources.ModelResource):
     
     class Meta:
         model = Product
-        fields = ("model", "name", "cost",)
+        fields = ("model", "name", "cost", "product_type")
 
 
 # Register your models here.
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ImportExportMixin, admin.ModelAdmin):
 
     # Add Calculated field Change % in product detail field
     readonly_fields = ('change_percentage',)
