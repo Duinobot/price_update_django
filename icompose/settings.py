@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -75,16 +76,29 @@ WSGI_APPLICATION = 'icompose.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Docker Postgres DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django',
-        'HOST': 'django-postgres.csafa9pyanaf.us-east-2.rds.amazonaws.com',
+        'HOST': 'localhost',
         'PORT': '5432',
         'USER': 'postgres',
-        'PASSWORD': '123456789',
+        'PASSWORD': 'pw',
     }
 }
+
+# # AWS DB
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'django',
+#         'HOST': 'django-postgres.csafa9pyanaf.us-east-2.rds.amazonaws.com',
+#         'PORT': '5432',
+#         'USER': 'postgres',
+#         'PASSWORD': '123456789',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -183,3 +197,5 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True

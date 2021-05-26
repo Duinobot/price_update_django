@@ -1,5 +1,13 @@
 from django.contrib import admin
 from price_update.models import Product
+from import_export import resources
+
+# Create Import Export Resource
+class ProductResource(resources.ModelResource):
+    
+    class Meta:
+        model = Product
+        fields = ("model", "name", "cost",)
 
 
 # Register your models here.
