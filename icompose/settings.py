@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'import_export',
     'rest_framework',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -206,3 +207,6 @@ IMPORT_EXPORT_USE_TRANSACTIONS = True
 SHELL_PLUS_POST_IMPORTS = [
     'from price_update.serializers import ProductSerializer',
 ]
+
+LOGIN_REDIRECT_URL = 'products'
+LOGOUT_REDIRECT_URL = 'products'

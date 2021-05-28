@@ -8,5 +8,5 @@ router.register(r'products', views.ProductViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
-    path('product', views.ProductPageView.as_view(), name='product'),
+    path('products', views.ProductPageView.as_view(), name='products'),
 ]
