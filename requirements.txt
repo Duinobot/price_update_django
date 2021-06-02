@@ -8,3 +8,4 @@ django-import-export
 djangorestframework
 markdown
 django-filter
+django-allauth

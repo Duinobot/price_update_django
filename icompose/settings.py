@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'price_update',
     'django.contrib.admin',
     'django.contrib.auth',
     'django_extensions',
@@ -39,9 +38,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # apps
+    'price_update',
+    'accounts',
+    'buyback',
+    'page',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
+    # plugins
     'import_export',
     'rest_framework',
-    'accounts',
+
+
 ]
 
 MIDDLEWARE = [
@@ -67,6 +79,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # `allauth` needs this from django
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -171,6 +185,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    ...
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    ...
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -210,3 +233,17 @@ SHELL_PLUS_POST_IMPORTS = [
 
 LOGIN_REDIRECT_URL = 'products'
 LOGOUT_REDIRECT_URL = 'products'
+
+SITE_ID = 1
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '1024864968069-im4di1kjpkn22b1ch0klsl7jc9r675t3.apps.googleusercontent.com',
+            'secret': '6nZPgzKn4oeRclkBJYeq3tDz',
+            'key': ''
+        }
+    }
+}
